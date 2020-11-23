@@ -13,7 +13,10 @@ body{
     width: 10px;
 }
 ::-webkit-scrollbar-thumb{
-    color: #676767;
+    background-color: #c4c4c4;
+    width: 10px;
+    height: 50px;
+    border-radius: 5px;
 }
 body, button, .search{
     font-family: 'Barlow', sans-serif;

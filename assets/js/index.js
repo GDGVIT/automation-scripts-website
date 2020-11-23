@@ -80,11 +80,11 @@ function getPost() {
     $('.scroll-top').click(function () {
         $(window).scrollTop(0);
     })
-    /*
+    
     $(function() {
         $('.jscroll').jscroll();    
     });
-    */
+    
    
 /*run the function the first time*/
 getPost();
