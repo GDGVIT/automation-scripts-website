@@ -1,8 +1,20 @@
 let URL = `https://automation-script-worker.herokuapp.com/scripts/?limit=10&offset=0`;
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+function extractDate(d){
+    let day=d.slice(8,10);
+    let month=monthNames[d.slice(5,7)-1].slice(0,3);
+    console.log(month, " ", day);
+    let dateStr=`${month} ${day}`;
+    return dateStr;
+}
 
 function addDataToDOM(data) {
     for (let i = 0; i < data.results.length; i++) {
         let current = data.results[i];
+        console.log(current.added)
+        let date=extractDate(current.added);
 
         const card = ` <div class="card" loading="lazy">
     <div class="card-main">
@@ -11,10 +23,10 @@ function addDataToDOM(data) {
             <h2>${current.name}</h2>
             <h3> ${current.made_by}</h3>
             <span class="card-m-b">
-                <p>${current.added}</p>
+                <p>${date}</p>
                 <span>
-                    <a href="${current.url}" class="card-btn">Download</a>
-                    <a href="${current.url}" class="card-btn">View</a>
+                    <a href="${current.url}" class="card-btn" target="_blank">Download</a>
+                    <a href="${current.url}" class="card-btn" target="_blank">View</a>
                 </span>
             </span>
         </div>
