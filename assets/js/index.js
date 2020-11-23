@@ -125,24 +125,16 @@ $(window).scroll(function (event) {
 
 /*Search functionality*/
 
-function handleSearch(){
+
+$('.submit-btn').click(function(e){
+    let searchInput=$(e.target).parent().siblings('.search')
     search=true;
-    let params=$('#search').val()
+    let params=$(searchInput).val()
     $('.container').empty();
     console.log(params)
    let url=`https://automation-script-worker.herokuapp.com/scripts/search/?search=${params}`;
    jQuery.get(url, function (data, status) {
     addDataToDOM(data);
-    
+   })
+
 });
-}
-
-
-
-
-
-
-
-
-
-$('.submit-btn').click(handleSearch);
