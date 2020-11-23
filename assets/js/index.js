@@ -1,11 +1,12 @@
 let URL = `https://automation-script-worker.herokuapp.com/scripts/?limit=10&offset=0`;
+let search=false;
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
+
 function extractDate(d){
     let day=d.slice(8,10);
     let month=monthNames[d.slice(5,7)-1].slice(0,3);
-    console.log(month, " ", day);
     let dateStr=`${month} ${day}`;
     return dateStr;
 }
@@ -13,9 +14,7 @@ function extractDate(d){
 function addDataToDOM(data) {
     for (let i = 0; i < data.results.length; i++) {
         let current = data.results[i];
-        console.log(current.added)
         let date=extractDate(current.added);
-
         const card = ` <div class="card" loading="lazy">
     <div class="card-main">
         <img src="${current.creator_dp}" alt="" class="circular">
@@ -118,8 +117,32 @@ $(window).scroll(function (event) {
     let winHeight=$(window).height()
     let docHeight= $(document).height()
   
-    if(scrollTop+winHeight>=docHeight-100) {
+    if(scrollTop+winHeight>=docHeight-100 && !search){
         getPost()
     }
 
 });
+
+/*Search functionality*/
+
+function handleSearch(){
+    search=true;
+    let params=$('#search').val()
+    $('.container').empty();
+    console.log(params)
+   let url=`https://automation-script-worker.herokuapp.com/scripts/search/?search=${params}`;
+   jQuery.get(url, function (data, status) {
+    addDataToDOM(data);
+    
+});
+}
+
+
+
+
+
+
+
+
+
+$('.submit-btn').click(handleSearch);
