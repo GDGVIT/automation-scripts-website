@@ -136,7 +136,7 @@ $(window).scroll(function (event) {
 /*Search functionality*/
 $('.submit-btn').click(function (e) {
     /*Make sure home is visible and contribute is hidden*/
-    $( `#contribute`).removeClass('hide');
+    $( '#contribute').addClass('hide');
     $('#home').removeClass('hide');
 
 
