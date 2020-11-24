@@ -18,6 +18,23 @@ body, html{
     height: 50px;
     border-radius: 5px;
 }
+
+/*loader*/
+.loader{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+.loader>img{
+    height: 70px;
+    width: 70px;
+}
+
+
+
 body, button, .search, .form-input{
     font-family: 'Barlow', sans-serif;
 }

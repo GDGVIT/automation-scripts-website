@@ -1,3 +1,10 @@
+/*remove loader*/
+$(document).ready(function(){
+    $('.loader').addClass('hide')
+})
+
+
+
 /*URL for all scripts display*/
 let URL = `https://automation-script-worker.herokuapp.com/scripts/?limit=10&offset=0`;
 /*Global variable to mark search on or off and trigger general display accordingly*/
