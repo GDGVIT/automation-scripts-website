@@ -30,7 +30,7 @@ function addDataToDOM(data) {
             <h3> ${current.made_by}</h3>
             <span class="card-m-b">
                 <p>${date}</p>
-                <span>
+                <span class="btns">
                     <a href="${current.url}" class="card-btn" target="_blank" >Download</a>
                     <a href="${current.url}" class="card-btn" target="_blank">View</a>
                 </span>

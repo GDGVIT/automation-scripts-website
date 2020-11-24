@@ -112,6 +112,12 @@ body, button, .search, .form-input{
     flex-direction: column;
     align-items: center;
 }
+.card, .form-input, .upload-file{
+    box-sizing:border-box; 
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box; 
+    -ms-box-sizing:border-box;
+}
 
 .card{
     padding: 1.5rem;
@@ -231,10 +237,6 @@ td, th{
 }
 .form-input{
     display: block;
-    box-sizing:border-box; 
-    -moz-box-sizing:border-box; 
-    -webkit-box-sizing:border-box; 
-    -ms-box-sizing:border-box; 
 }
 .example{
     font-size: 0.75rem;
@@ -246,11 +248,7 @@ td, th{
 }
 .upload-file{
     justify-content: space-between;
-    align-items: center;
-    box-sizing:border-box; 
-    -moz-box-sizing:border-box;
-    -webkit-box-sizing:border-box; 
-    -ms-box-sizing:border-box; 
+    align-items: center; 
 }
 .upload-file>p{
     margin: 0;
@@ -291,12 +289,46 @@ td, th{
     .search-form{
         width: 90%;
     }
+    h2{
+        font-size: 1.2rem;
+    }
+    h3{
+        font-size: 1rem;
+    }
+    p{
+        font-size: 0.9rem;
+    }
+    .circular{
+        width: 70px;
+        height: 70px;
+    }
+
  
     
 }
 @media (max-width: 400px){
     .navbar{
         padding: 0.5rem;
+    }
+    .circular{
+        width: 50px;
+        height: 50px;
+    }
+    .card-m-b{
+        display: block;
+    }
+    .card-m-b>p{
+        margin-bottom: 0.5rem;
+    }
+    .btns{
+        margin-bottom: 1rem;
+    }
+    .hr{
+        margin-bottom: 0.5rem;
+        margin-top: 1rem;
+    }
+    td, th{
+        padding: 0 0.5rem 0.5rem 0.5rem;
     }
 }
 @media (max-width: 320px){
