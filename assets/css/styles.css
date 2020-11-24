@@ -302,6 +302,9 @@ td, th{
         width: 70px;
         height: 70px;
     }
+    .chevron-c> .fa-chevron-down{
+        margin-top: 0.5rem;
+    }
 
  
     
@@ -329,6 +332,9 @@ td, th{
     }
     td, th{
         padding: 0 0.5rem 0.5rem 0.5rem;
+    }
+    .card{
+        padding: 1rem;
     }
 }
 @media (max-width: 320px){
