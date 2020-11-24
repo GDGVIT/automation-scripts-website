@@ -2,11 +2,12 @@ html {
     scroll-behavior: smooth;
   }
 
-body{
+body, html{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    
 }
 ::-webkit-scrollbar{
     background-color: #fff;
@@ -42,7 +43,7 @@ body, button, .search{
 }
 /*Search field*/
 #form2{
-    visibility: hidden;
+    display: none;
 }
 .search-form{
     position: absolute;
@@ -82,22 +83,25 @@ body, button, .search{
     border: none;
     border-radius: 5px;
     font-size: 1rem;
+    text-decoration: none;
+    color: #000;
 }
 /*Card container*/
-.container{
-    padding: 15vh 5vw 5vw 5vh;
+.add-container, .container{
+    padding: 7rem 5vw 5vh 5vw;
     width: 90vw;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
+
 .card{
     padding: 1.5rem;
     background-color: #efefef;
     border-radius: 10px;
     width: 670px;
-    max-width: 90%;
+    max-width: 100%;
     margin-bottom: 1.5rem;
 }
 .circular{
@@ -117,6 +121,25 @@ body, button, .search{
 h2{
     font-size: 1.5rem;
     margin: 0.5rem 0 0 0;
+    
+
+        /* These are technically the same, but use both */
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      
+        -ms-word-break: break-all;
+        /* This is the dangerous one in WebKit, as it breaks things wherever */
+        word-break: break-all;
+        /* Instead use this non-standard one: */
+        word-break: break-word;
+      
+        /* Adds a hyphen where the word breaks, if supported (No Blink) */
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+      
+      
 }
 h3, p{
     margin-top: 0.5rem;
@@ -207,12 +230,13 @@ td, th{
         display: none;
     }
     #form2{
-        visibility: visible;
-        margin: 0 1rem;
+        display: flex;
+        margin: 0 5%;
     }
     .search-form{
-        width: auto;
+        width: 90%;
     }
+ 
     
 }
 @media (max-width: 400px){
