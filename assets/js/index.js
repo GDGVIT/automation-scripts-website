@@ -24,7 +24,6 @@ function extractDate(d) {
 }
 /*Add card with data*/
 function addDataToDOM(data) {
-    console.log(data)
     for (let i = 0; i < data.results.length; i++) {
         let current = data.results[i];
         /*Call extract date function to get date from timestamp*/
@@ -173,6 +172,18 @@ $('.upload').click(function(){
 /*Update paragraph tag with file name*/
 $('#profile').change(function(e){
     const name = e.target.files[0].name;
-    console.log(name)
     $('#filename').html(name)
+})
+
+/*Trigger search button click on pressing enter key*/
+var input = document.getElementById("myInput");
+$('.search').keyup(function(e){
+    console.log(e.keyCode);
+    if (e.keyCode === 13) {
+        // Cancel the default action, if needed
+        e.preventDefault();
+        // Trigger the button element with a click
+        $(".submit-btn").click();
+    }
+
 })
