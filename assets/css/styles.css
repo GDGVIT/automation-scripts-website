@@ -18,6 +18,33 @@ body, html{
     height: 50px;
     border-radius: 5px;
 }
+/*Modal*/
+.modal{
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    width: 100vw;
+    min-height: 100vh;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.modal-container{
+    width: 100%;
+}
+.modal-container > .card{
+    margin: auto;
+}
+.close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 2rem;
+}
+.close:hover{
+    cursor: pointer;
+}
 
 /*loader*/
 .loader{
@@ -27,6 +54,7 @@ body, html{
     justify-content: center;
     align-items: center;
     background-color: #fff;
+    z-index: 99;
 }
 .loader>img{
     height: 70px;
@@ -127,7 +155,7 @@ body, button, .search, .form-input{
     flex-direction: column;
     align-items: center;
 }
-.card, .form-input, .upload-file{
+.card, .form-input, .upload-file, .modal, .modal-container{
     box-sizing:border-box; 
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box; 
@@ -179,13 +207,17 @@ h2{
       
       
 }
-.script-name >h2, .script-name>img{
+.script-name >h2, .script-name>i{
     display: inline;
 }
-.script-name>img{
-    height: 20px;
-    width: 20px;
+.script-name>i{
+   
     float: right;
+    color: #999999;
+}
+.script-name>i:hover{
+    color: black;
+    cursor: pointer;
 }
 h3, p{
     margin-top: 0.5rem;
@@ -215,7 +247,7 @@ p, .card-btn{
 }
 .chevron-c{
     text-align: center;
-    color: #676767;  
+    color: #999999;  
 }
 .chevron-c > i:hover{
     cursor: pointer;

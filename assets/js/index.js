@@ -1,5 +1,5 @@
 /*remove loader*/
-$(document).ready(function(){
+$(document).ready(function () {
     $('.loader').addClass('hide')
 })
 
@@ -28,13 +28,14 @@ function addDataToDOM(data) {
         let current = data.results[i];
         /*Call extract date function to get date from timestamp*/
         let date = extractDate(current.added);
-        const card = ` <div class="card" loading="lazy">
+        const card = ` 
+        <div class="card" loading="lazy">
         <div class="card-main">
         <img src="${current.creator_dp}" alt="" class="circular">
         <div class="card-main-text">
         <div class="script-name">
         <h2>${current.name}</h2>
-        <img src="./assets/img/verified.png" alt="verified">
+        <i class="fas fa-check-circle"></i>
         </div>
             
             <h3> ${current.made_by}</h3>
@@ -71,12 +72,10 @@ function addDataToDOM(data) {
         </div>    
     </div>
     <div class="chevron-c">
-        <i class="fas fa-chevron-down"></i>
+    <i class="fas fa-chevron-down"></i>
     </div>
     
-    <div class="chevron-c hide">
-        <i class="fas fa-chevron-up"></i>
-    </div>
+  
 </div>`
         /*Append card to container */
         $('.container').append(card);
@@ -84,18 +83,21 @@ function addDataToDOM(data) {
 
     /*Check if chevron is clicked and collapse/ expand card */
     $(`.chevron-c>.fa-chevron-down`).click(function () {
-        $(this).parent().siblings('.card-collapsible').removeClass('hide');
-        $(this).parent().addClass('hide');
-        $(this).parent().siblings('.chevron-c').removeClass('hide')
-    })
-    $(`.chevron-c>.fa-chevron-up`).click(function () {
-        $(this).parent().siblings('.card-collapsible').addClass('hide');
-        $(this).parent().addClass('hide');
-        $(this).parent().siblings('.chevron-c').removeClass('hide')
+        console.log('clicked')
+        $('.modal').removeClass('hide')
+        $('.modal-container').html($(this).closest("div.card"));
+        $('.modal-container > .card > .card-collapsible').removeClass('hide')
+
     })
 
 }
 
+/*close modal on click of close button*/
+$('.close').click(function () {
+    $('.modal').addClass('hide');
+})
+
+/*Close modal on clicking outside */
 
 /*Function to get all scripts data*/
 function getPost() {
@@ -146,7 +148,7 @@ $(window).scroll(function (event) {
 /*Search functionality*/
 $('.submit-btn').click(function (e) {
     /*Make sure home is visible and contribute is hidden*/
-    $( '#contribute').addClass('hide');
+    $('#contribute').addClass('hide');
     $('#home').removeClass('hide');
 
 
@@ -162,26 +164,26 @@ $('.submit-btn').click(function (e) {
 });
 
 /* Toggle between navlinks*/
-$('.nav-link').click(function(e){
-    let clickedId=$(e.target).attr('href').slice(1,);
+$('.nav-link').click(function (e) {
+    let clickedId = $(e.target).attr('href').slice(1, );
     $('section').addClass('hide');
-    $( `#${clickedId}`).removeClass('hide')
+    $(`#${clickedId}`).removeClass('hide')
 })
 /*File upload*/
 
 /*Trigger file input on clicking the fontawesome icon*/
-$('.upload').click(function(){
+$('.upload').click(function () {
     $('#profile').click()
 })
 /*Update paragraph tag with file name*/
-$('#profile').change(function(e){
+$('#profile').change(function (e) {
     const name = e.target.files[0].name;
     $('#filename').html(name)
 })
 
 /*Trigger search button click on pressing enter key*/
 var input = document.getElementById("myInput");
-$('.search').keyup(function(e){
+$('.search').keyup(function (e) {
     console.log(e.keyCode);
     if (e.keyCode === 13) {
         // Cancel the default action, if needed
