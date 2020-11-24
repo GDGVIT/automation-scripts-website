@@ -48,22 +48,41 @@
 
 
     </div>
-    <section id="home" class="section">
+    <section id="home" class="section hide">
         <div class="container">
 
 
         </div>
     </section>
-    <section id="contribute" class="hide section">
+    <section id="contribute" class="section ">
         <div class="add-container">
-            <form action="" id="contribute">
-                
+            <h1>Contribute</h1>
+            <form action="" id="contribute-form">
+                <input type="text" name="name" id="name" class="form-input"  placeholder="Your name (optional)">
+                <div class=" upload-file">
+                    <p id="filename">Click on the button to upload a file</p>
+                    <input type="file" name="profile" id="profile" class="hide">
+                    <span class="upload">
+                        <i class="fa fa-upload"></i>
+                    </span>
+                </div>
+                <input type="text" name="title" id="title" class="form-input" required placeholder="Title">
+                <input type="text" name="type" id="type" required class="form-input" placeholder="Type of script">
+                <input type="text" name="category" id="category" required class="form-input" placeholder="Category">
+                <p class="example">For eg. miscellaneous, security, testing, deployment, etc.</p>
+                <textarea class="form-input" placeholder="Description" id="description" rows="5" maxlength="500"></textarea>
+  
+                <input type="url" name="url" id="url" required class="form-input" placeholder="Raw GitHub URL">
+            
+                <button class="grey-btn">
+                    Submit
+                </button>
             </form>
         </div>
     </section>
 
 
-
+    <!--Scroll to Top button-->
     <span class="scroll-top hide">
         <i class="fas fa-chevron-up fa-2x"></i>
     </span>
