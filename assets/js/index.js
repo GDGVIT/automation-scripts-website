@@ -17,6 +17,7 @@ function extractDate(d) {
 }
 /*Add card with data*/
 function addDataToDOM(data) {
+    console.log(data)
     for (let i = 0; i < data.results.length; i++) {
         let current = data.results[i];
         /*Call extract date function to get date from timestamp*/
@@ -134,6 +135,11 @@ $(window).scroll(function (event) {
 
 /*Search functionality*/
 $('.submit-btn').click(function (e) {
+    /*Make sure home is visible and contribute is hidden*/
+    $( `#contribute`).removeClass('hide');
+    $('#home').removeClass('hide');
+
+
     let searchInput = $(e.target).parent().siblings('.search');
     search = true;
     let params = $(searchInput).val()
@@ -150,4 +156,16 @@ $('.nav-link').click(function(e){
     let clickedId=$(e.target).attr('href').slice(1,);
     $('section').addClass('hide');
     $( `#${clickedId}`).removeClass('hide')
+})
+/*File upload*/
+
+/*Trigger file input on clicking the fontawesome icon*/
+$('.upload').click(function(){
+    $('#profile').click()
+})
+/*Update paragraph tag with file name*/
+$('#profile').change(function(e){
+    const name = e.target.files[0].name;
+    console.log(name)
+    $('#filename').html(name)
 })
