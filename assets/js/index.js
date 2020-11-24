@@ -32,7 +32,11 @@ function addDataToDOM(data) {
         <div class="card-main">
         <img src="${current.creator_dp}" alt="" class="circular">
         <div class="card-main-text">
-            <h2>${current.name}</h2>
+        <div class="script-name">
+        <h2>${current.name}</h2>
+        <img src="./assets/img/verified.png" alt="verified">
+        </div>
+            
             <h3> ${current.made_by}</h3>
             <span class="card-m-b">
                 <p>${date}</p>
