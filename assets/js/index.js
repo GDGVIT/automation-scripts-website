@@ -118,13 +118,22 @@ $('.close').click(function () {
 
 
 /*Close modal on clicking outside */
+$('.modal').click(function(){
+    $('#modal').addClass('hide');
+   
+})
 
+$('.modal-container ').click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    return false;
+})
   
 
 /*Function to get all scripts data*/
 function getPost() {
     jQuery.get(URL, function (data, status) {
-        console.log(data)
         addDataToDOM(data);
         URL = data.next;
     });
