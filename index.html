@@ -35,20 +35,27 @@
     </div>
     <div class="nav-super">
         <nav class="navbar">
-                <span class="nav-logo" >
-                    <img src="./assets/img/color1.png" alt="DSC VIT" href="#home" class="nav-link">
-                </span>
-     
+            <span class="nav-logo">
+                <img src="./assets/img/color1.png" alt="DSC VIT" href="#home" class="nav-link">
+            </span>
+
             <form class="search-form" action="" id="form1">
                 <input type="text" placeholder="Search..." name="search" class="search">
                 <span class="submit-btn">
                     <i class="fa fa-search"></i>
                 </span>
             </form>
-
-            <a class="grey-btn nav-link" href="#contribute" >
-                Contribute
-            </a>
+            
+            <div>
+                
+                
+                <a class="grey-btn nav-link" href="#contribute">
+                    Contribute
+                </a>
+                
+            </div>
+         
+            
         </nav>
 
         <form class="search-form" action="" id='form2'>
@@ -57,7 +64,7 @@
                 <i class="fa fa-search"></i>
             </span>
         </form>
-        
+
 
 
     </div>
@@ -71,7 +78,7 @@
         <div class="add-container">
             <h1>Contribute</h1>
             <form action="" id="contribute-form">
-                <input type="text" name="name" id="name" class="form-input"  placeholder="Your name (optional)">
+                <input type="text" name="name" id="name" class="form-input" placeholder="Your name (optional)">
                 <div class=" upload-file">
                     <p id="filename">Click on the button to upload a file</p>
                     <input type="file" name="profile" id="profile" class="hide">
@@ -83,10 +90,11 @@
                 <input type="text" name="type" id="type" required class="form-input" placeholder="Type of script">
                 <input type="text" name="category" id="category" required class="form-input" placeholder="Category">
                 <p class="example">For eg. miscellaneous, security, testing, deployment, etc.</p>
-                <textarea class="form-input" placeholder="Description" id="description" rows="5" maxlength="500"></textarea>
-  
+                <textarea class="form-input" placeholder="Description" id="description" rows="5"
+                    maxlength="500"></textarea>
+
                 <input type="url" name="url" id="url" required class="form-input" placeholder="Raw GitHub URL">
-            
+
                 <button class="grey-btn">
                     Submit
                 </button>
@@ -103,3 +111,5 @@
 </body>
 
 </html>
+
+
