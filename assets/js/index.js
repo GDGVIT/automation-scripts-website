@@ -46,7 +46,7 @@ function addDataToDOM(data) {
                 <span class="card-m-b">
                     <p>${date}</p>
                     <span class="btns">
-                        <a href="${current.url}" class="card-btn" target="_blank">Download</a>
+                        <a href="https://automation-script-worker.herokuapp.com/scripts/download/${current.id}" class="card-btn" target="_blank">Download</a>
                         <a href="${current.url}" class="card-btn" target="_blank">View</a>
                     </span>
                 </span>
