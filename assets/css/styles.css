@@ -30,9 +30,7 @@ body, html{
     align-items: center;
     padding: 1rem;
 }
-.modal-container{
-    
-}
+
 .modal-container > .card{
     margin: auto;
 }
@@ -55,6 +53,7 @@ body, html{
     align-items: center;
     background-color: #fff;
     z-index: 99;
+    position: fixed;
 }
 .loader>img{
     height: 70px;

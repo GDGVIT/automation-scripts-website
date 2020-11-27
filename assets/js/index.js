@@ -1,7 +1,4 @@
 /*remove loader*/
-$(document).ready(function () {
-    $('.loader').addClass('hide')
-})
 
 
 
@@ -89,6 +86,9 @@ function addDataToDOM(data) {
         `
         /*Append card to container */
         $('.container').append(card);
+      
+        $('.loader').addClass('hide')
+   
     }
 
     /*Check if chevron is clicked and collapse/ expand card */
