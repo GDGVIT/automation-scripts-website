@@ -79,9 +79,6 @@ function addDataToDOM(data) {
         <div class="chevron-c">
             <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="chevron-c hide chevron-c-up">
-                <i class="fas fa-chevron-up"></i>
-        </div>
     </div> 
         `
         /*Append card to container */
@@ -104,9 +101,7 @@ function addDataToDOM(data) {
         $('.modal-container > .card > .chevron-c-up').removeClass('hide')
     })
     
-    $(`.fa-chevron-up`).click(function () {
-       $('.close').click()
-    })
+ 
    
 
 }

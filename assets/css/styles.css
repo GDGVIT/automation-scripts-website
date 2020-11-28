@@ -30,6 +30,9 @@ body, html{
     align-items: center;
     padding: 1rem;
 }
+.modal-container{
+    max-width: 100%;
+}
 
 .modal-container > .card{
     margin: auto;
