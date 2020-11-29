@@ -2,20 +2,68 @@ html {
     scroll-behavior: smooth;
   }
 
-body{
+body, html{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;    
 }
 ::-webkit-scrollbar{
     background-color: #fff;
     width: 10px;
 }
 ::-webkit-scrollbar-thumb{
-    color: #676767;
+    background-color: #c4c4c4;
+    width: 10px;
+    height: 50px;
+    border-radius: 5px;
 }
-body, button, .search{
+/*Modal*/
+.modal{
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    width: 100vw;
+    min-height: 100vh;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.modal-container{
+    max-width: 100%;
+}
+
+.modal-container > .card{
+    margin: auto;
+}
+.close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 2rem;
+}
+.close:hover{
+    cursor: pointer;
+}
+
+/*loader*/
+.loader{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    z-index: 99;
+    position: fixed;
+}
+.loader>img{
+    height: 70px;
+    width: 70px;
+}
+
+body, button, .search, .form-input{
     font-family: 'Barlow', sans-serif;
 }
 /*Navbar*/
@@ -30,8 +78,13 @@ body, button, .search{
     align-items: center;
     padding: 0.5rem 2rem;
 }
+
 .nav-logo>img{
     height: 50px;
+}
+
+.nav-logo:hover{
+    cursor: pointer;
 }
 .submit-btn, .search{
     margin: 0;
@@ -39,27 +92,41 @@ body, button, .search{
 }
 /*Search field*/
 #form2{
-    visibility: hidden;
+    display: none;
 }
+.form-input, .search-form, .upload-file{
+    border: 1px solid #676767;
+    border-radius: 5px;
+}
+
+.upload-file, .search-form{
+    display: flex;
+}
+
 .search-form{
     position: absolute;
     top: 1rem;
     left: 50%;
     transform: translateX(-50%) ;
-    border: 1px solid #676767;
-    border-radius: 5px;
-    display: flex;
     width: 400px;
 }
-.search{
+.form-input, .search, .upload-file{
+    font-size: 1rem;
     padding: 0.5rem 1rem;
+}
+.search{
     border: none;
     border-radius: 5px 0 0 5px;
-    font-size: 1rem;
     flex-grow: 1;
 }
 .search:focus, .search:active{
     border: none;
+}
+.submit-btn >i, .upload>i{
+    color: #676767;
+}
+.submit-btn:hover >i, .upload:hover>i{
+    color: #000;
 }
 .submit-btn >i {
     background-color: #fff;
@@ -68,7 +135,7 @@ body, button, .search{
     height:100%;
     width: auto;
 }
-.submit-btn:hover{
+.submit-btn:hover, .grey-btn:hover, .upload:hover{
     cursor: pointer;
 }
 /*Navbar bold button*/
@@ -79,22 +146,33 @@ body, button, .search{
     border: none;
     border-radius: 5px;
     font-size: 1rem;
+    text-decoration: none;
+    color: #000;
+    min-width: 120px;
 }
+
 /*Card container*/
-.container{
-    padding: 15vh 5vw 5vw 5vh;
+.add-container, .container{
+    padding: 7rem 5vw 5vh 5vw;
     width: 90vw;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
+.card, .form-input, .upload-file, .modal, .modal-container{
+    box-sizing:border-box; 
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box; 
+    -ms-box-sizing:border-box;
+}
+
 .card{
     padding: 1.5rem;
     background-color: #efefef;
     border-radius: 10px;
     width: 670px;
-    max-width: 90%;
+    max-width: 100%;
     margin-bottom: 1.5rem;
 }
 .circular{
@@ -114,6 +192,37 @@ body, button, .search{
 h2{
     font-size: 1.5rem;
     margin: 0.5rem 0 0 0;
+    
+
+        /* These are technically the same, but use both */
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      
+        -ms-word-break: break-all;
+        /* This is the dangerous one in WebKit, as it breaks things wherever */
+        word-break: break-all;
+        /* Instead use this non-standard one: */
+        word-break: break-word;
+      
+        /* Adds a hyphen where the word breaks, if supported (No Blink) */
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+      
+      
+}
+.script-name >h2, .script-name>i{
+    display: inline;
+}
+.script-name>i{
+   
+ 
+    color: #999999;
+}
+.script-name>i:hover{
+    color: black;
+    cursor: pointer;
 }
 h3, p{
     margin-top: 0.5rem;
@@ -143,7 +252,7 @@ p, .card-btn{
 }
 .chevron-c{
     text-align: center;
-    color: #676767;  
+    color: #999999;  
 }
 .chevron-c > i:hover{
     cursor: pointer;
@@ -179,6 +288,36 @@ td, th{
     color: #000;
     cursor: pointer;
 }
+
+/*Contribute form*/
+#contribute-form{
+    width: 500px;
+    max-width: 100%;
+    text-align: center;
+}
+.form-input{
+    display: block;
+}
+.example{
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+}
+.upload-file, .form-input{
+    margin-bottom: 1rem;
+    width: 100%;
+}
+.upload-file{
+    justify-content: space-between;
+    align-items: center; 
+}
+.upload-file>p{
+    margin: 0;
+}
+#filename{
+    color: grey;
+}
+
+
 /*Media queries*/
 
 @media (max-width: 1200px){
@@ -204,17 +343,58 @@ td, th{
         display: none;
     }
     #form2{
-        visibility: visible;
-        margin: 0 1rem;
+        display: flex;
+        margin: 0 5%;
     }
     .search-form{
-        width: auto;
+        width: 90%;
     }
+    h2{
+        font-size: 1.2rem;
+    }
+    h3{
+        font-size: 1rem;
+    }
+    p{
+        font-size: 0.9rem;
+    }
+    .circular{
+        width: 70px;
+        height: 70px;
+    }
+    .chevron-c> .fa-chevron-down{
+        margin-top: 0.5rem;
+    }
+
+ 
     
 }
 @media (max-width: 400px){
     .navbar{
         padding: 0.5rem;
+    }
+    .circular{
+        width: 50px;
+        height: 50px;
+    }
+    .card-m-b{
+        display: block;
+    }
+    .card-m-b>p{
+        margin-bottom: 0.5rem;
+    }
+    .btns{
+        margin-bottom: 1rem;
+    }
+    .hr{
+        margin-bottom: 0.5rem;
+        margin-top: 1rem;
+    }
+    td, th{
+        padding: 0 0.5rem 0.5rem 0.5rem;
+    }
+    .card{
+        padding: 1rem;
     }
 }
 @media (max-width: 320px){
