@@ -171,20 +171,14 @@ $(window).scroll(function (event) {
 /*Search functionality*/
 $('.submit-btn').click(function (e) {
     /*Make sure home is visible and contribute is hidden*/
-    console.log('searching')
     $('#contribute').addClass('hide');
     $('#home').removeClass('hide');
-    console.log(e.target)
-
     let searchInput = $(e.target).siblings('.search');
     let params = $(searchInput).val()
-    console.log(params)
     $('.container').empty();
     let url = `https://automation-script-worker.herokuapp.com/scripts/search/?search=${params}`;
     $('.loader').removeClass('hide')
     jQuery.get(url, function (data, status) {
-       
-        console.log(status)
         addDataToDOM(data);
     })
 
@@ -228,9 +222,7 @@ $('#profile').change(function (e) {
 var input = document.getElementById("myInput");
 $('.search').keydown(function (e) {
 
-    console.log(e.keyCode);
     if (e.keyCode == 13) {
-        console.log('pressed enter')
         e.preventDefault();
         $(".submit-btn").click();
     }
