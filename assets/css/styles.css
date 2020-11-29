@@ -78,12 +78,11 @@ body, button, .search, .form-input{
     align-items: center;
     padding: 0.5rem 2rem;
 }
-.nav-link{
-    margin-left: 1rem;
-}
+
 .nav-logo>img{
     height: 50px;
 }
+
 .nav-logo:hover{
     cursor: pointer;
 }

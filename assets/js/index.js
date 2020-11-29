@@ -175,16 +175,18 @@ $(window).scroll(function (event) {
 /*Search functionality*/
 $('.submit-btn').click(function (e) {
     /*Make sure home is visible and contribute is hidden*/
+    console.log('searching')
     $('#contribute').addClass('hide');
     $('#home').removeClass('hide');
+    console.log(e.target)
 
-
-    let searchInput = $(e.target).parent().siblings('.search');
-    search = true;
+    let searchInput = $(e.target).siblings('.search');
     let params = $(searchInput).val()
+    console.log(params)
     $('.container').empty();
     let url = `https://automation-script-worker.herokuapp.com/scripts/search/?search=${params}`;
     jQuery.get(url, function (data, status) {
+        console.log(status)
         addDataToDOM(data);
     })
 
@@ -195,6 +197,22 @@ $('.nav-link').click(function (e) {
     let clickedId = $(e.target).attr('href').slice(1, );
     $('section').addClass('hide');
     $(`#${clickedId}`).removeClass('hide')
+
+        /*If on contribute change button to home*/
+
+    if(clickedId=='contribute'){
+        $('.grey-btn').attr('href', '#home')
+        $('.grey-btn').html('Home')
+    }
+        /*If on home change button to contribute*/
+
+    else{
+        $('.grey-btn').attr('href', '#contribute')   
+        $('.grey-btn').html('Contribute')
+    }
+
+
+
 })
 /*File upload*/
 
@@ -210,12 +228,12 @@ $('#profile').change(function (e) {
 
 /*Trigger search button click on pressing enter key*/
 var input = document.getElementById("myInput");
-$('.search').keyup(function (e) {
+$('.search').keydown(function (e) {
+
     console.log(e.keyCode);
-    if (e.keyCode === 13) {
-        // Cancel the default action, if needed
+    if (e.keyCode == 13) {
+        console.log('pressed enter')
         e.preventDefault();
-        // Trigger the button element with a click
         $(".submit-btn").click();
     }
 
