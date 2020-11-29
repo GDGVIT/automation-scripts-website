@@ -200,7 +200,7 @@ $('.nav-link').click(function (e) {
     /*If on home change button to contribute*/
     else {
         $('#grey-btn').attr('href', '#contribute')
-        $('#grey-btn').html('Contribute')
+        $('#grey-btn').html('Add a script')
     }
 
 
