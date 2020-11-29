@@ -1,7 +1,3 @@
-/*remove loader*/
-
-
-
 /*URL for all scripts display*/
 let URL = `https://automation-script-worker.herokuapp.com/scripts/?limit=10&offset=0`;
 /*Global variable to mark search on or off and trigger general display accordingly*/
@@ -34,7 +30,7 @@ function addDataToDOM(data) {
         verifiedHtml=notVerified;
         const card = `<div class="card" loading="lazy">
         <div class="card-main">
-            <img src="${current.creator_dp}" alt="" class="circular">
+            <img src="${current.creator_dp}" alt="" class="circular" loading="lazy">
             <div class="card-main-text">
                 <div class="script-name">
                     <h2>${current.name}</h2>
