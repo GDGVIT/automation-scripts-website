@@ -185,7 +185,9 @@ $('.submit-btn').click(function (e) {
     console.log(params)
     $('.container').empty();
     let url = `https://automation-script-worker.herokuapp.com/scripts/search/?search=${params}`;
+    $('.loader').removeClass('hide')
     jQuery.get(url, function (data, status) {
+       
         console.log(status)
         addDataToDOM(data);
     })
