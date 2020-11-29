@@ -201,14 +201,14 @@ $('.nav-link').click(function (e) {
         /*If on contribute change button to home*/
 
     if(clickedId=='contribute'){
-        $('.grey-btn').attr('href', '#home')
-        $('.grey-btn').html('Home')
+        $('#grey-btn').attr('href', '#home')
+        $('#grey-btn').html('Home')
     }
         /*If on home change button to contribute*/
 
     else{
-        $('.grey-btn').attr('href', '#contribute')   
-        $('.grey-btn').html('Contribute')
+        $('#grey-btn').attr('href', '#contribute')   
+        $('#grey-btn').html('Contribute')
     }
 
 
