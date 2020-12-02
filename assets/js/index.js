@@ -118,16 +118,27 @@ $('.close').click(function () {
 
 
 /*Close modal on clicking outside */
-$('.modal').click(function () {
-    $('#modal').addClass('hide');
-
+$('.modal').click(function (e) {
+    
+    if($(e.target).hasClass('card-btn')){
+        console.log('clicked the link btns')
+    }
+    else{
+        $('#modal').addClass('hide');
+    }
 })
 
 $('.modal-container ').click(function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    e.stopImmediatePropagation();
-    return false;
+    
+    if($(e.target).hasClass('card-btn')){
+        console.log('clicked the link btns')
+    }
+    else{
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+    }
+   
 })
 
 
@@ -176,6 +187,18 @@ $(window).scroll(function (event) {
     }
 
 });
+function formsDisplay(){
+    if($(window).width()<=768){
+        $('#form1').css('display', 'none')
+        $('#form2').css('display', 'flex')
+    }
+    else{
+        $('#form2').css('display', 'none')
+        $('#form1').css('display', 'flex')
+    }
+}
+$( window ).resize(formsDisplay);
+$(  document ).ready(formsDisplay)
 
 /*Search functionality*/
 $('.submit-btn').click(function (e) {
@@ -205,13 +228,15 @@ $('.nav-link').click(function (e) {
     if (clickedId == 'contribute') {
         $('#grey-btn').attr('href', '#home')
         $('#grey-btn').html('Home')
-        $('#form1').addClass('hide')
+        
+            $('#form1').css('display', 'none')
+            $('#form2').css('display', 'none')        
     }
     /*If on home change button to contribute*/
     else {
         $('#grey-btn').attr('href', '#contribute')
         $('#grey-btn').html('Add a script')
-        $('#form1').removeClass('hide')
+        formsDisplay();
 
     }
 
