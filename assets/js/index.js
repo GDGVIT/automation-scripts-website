@@ -2,10 +2,10 @@
 let URL = `https://automation-script-worker.herokuapp.com/scripts/?limit=10&offset=0`;
 /*Global variable to mark search on or off and trigger general display accordingly*/
 let search = false;
-let modalOpen = false;
 let verified = `<i class="fas fa-check-circle"></i>`
 let notVerified = '',
     verifiedHtml;
+let errorMessage = `<h2 class="err-msg">No results found :/</h3>`
 
 
 /*Extract date from timestamp */
@@ -21,69 +21,77 @@ function extractDate(d) {
 }
 /*Add card with data*/
 function addDataToDOM(data) {
-    for (let i = 0; i < data.results.length; i++) {
-        let current = data.results[i];
-        /*Call extract date function to get date from timestamp*/
-        let date = extractDate(current.added);
-        if (current.verified)
-            verifiedHtml = verified;
-        else
-            verifiedHtml = notVerified;
-        const card = `<div class="card" loading="lazy">
-        <div class="card-main">
-            <img src="${current.creator_dp}" alt="" class="circular" loading="lazy">
-            <div class="card-main-text">
-                <div class="script-name">
-                    <h2>${current.name}</h2>
-                    ${verifiedHtml}
-                    
-                </div>
-    
-                <h3> ${current.made_by}</h3>
-                <span class="card-m-b">
-                    <p>${date}</p>
-                    <span class="btns">
-                        <a href="https://automation-script-worker.herokuapp.com/scripts/download/${current.id}" class="card-btn" target="_blank">Download</a>
-                        <a href="${current.url}" class="card-btn" target="_blank">View</a>
+    if (data.count == 0) {
+        $('#error').removeClass('hide')
+    } else {
+        $('#error').addClass('hide')
+        for (let i = 0; i < data.results.length; i++) {
+            let current = data.results[i];
+            /*Call extract date function to get date from timestamp*/
+            let date = extractDate(current.added);
+            if (current.verified)
+                verifiedHtml = verified;
+            else
+                verifiedHtml = notVerified;
+            const card = `<div class="card" loading="lazy">
+            <div class="card-main">
+                <img src="${current.creator_dp}" alt="" class="circular" loading="lazy">
+                <div class="card-main-text">
+                    <div class="script-name">
+                        <h2>${current.name}</h2>
+                        ${verifiedHtml}
+                        
+                    </div>
+        
+                    <h3> ${current.made_by}</h3>
+                    <span class="card-m-b">
+                        <p>${date}</p>
+                        <span class="btns">
+                            <a href="https://automation-script-worker.herokuapp.com/scripts/download/${current.id}" class="card-btn" target="_blank">Download</a>
+                            <a href="${current.url}" class="card-btn" target="_blank">View</a>
+                        </span>
                     </span>
-                </span>
+                </div>
             </div>
-        </div>
-        <div class="card-collapsible hide">
-            <div class="hr"></div>
-            <div>
-                <table>
-                    <tr>
-                        <th>
-                            Category:
-                        </th>
-                        <td class="cell">
-                            ${current.category}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Description:
-                        </th>
-                        <td>
-                            ${current.description}
-                        </td>
-                    </tr>
-                </table>
+            <div class="card-collapsible hide">
+                <div class="hr"></div>
+                <div>
+                    <table>
+                        <tr>
+                            <th>
+                                Category:
+                            </th>
+                            <td class="cell">
+                                ${current.category}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Description:
+                            </th>
+                            <td>
+                                ${current.description}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
             </div>
-            
-        </div>
-        <div class="chevron-c">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </div> 
-        `
-        /*Append card to container */
-        $('.container').append(card);
+            <div class="chevron-c">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div> 
+            `
+            /*Append card to container */
+            $('.container').append(card);
 
-        $('.loader').addClass('hide')
+
+        }
 
     }
+
+
+    $('.loader').addClass('hide')
 
     /*Check if chevron is clicked and collapse/ expand card */
     $(`.fa-chevron-down`).click(function () {
@@ -181,6 +189,7 @@ $('.submit-btn').click(function (e) {
     $('.loader').removeClass('hide')
     jQuery.get(url, function (data, status) {
         addDataToDOM(data);
+
     })
 
 });
@@ -249,7 +258,7 @@ $('#contribute-form').submit(function (e) {
 
         success: function (data, textStatus, xhr) {
             console.log(xhr.status);
-            if(xhr.status==201){
+            if (xhr.status == 201) {
                 $('#grey-btn').click()
             }
         },

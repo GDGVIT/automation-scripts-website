@@ -152,7 +152,8 @@ body, button, .search, .form-input{
 }
 
 /*Card container*/
-.add-container, .container{
+
+.add-container, .container, .c{
     padding: 7rem 5vw 5vh 5vw;
     width: 90vw;
     display: flex;
@@ -160,6 +161,7 @@ body, button, .search, .form-input{
     flex-direction: column;
     align-items: center;
 }
+
 .card, .form-input, .upload-file, .modal, .modal-container{
     box-sizing:border-box; 
     -moz-box-sizing:border-box;
@@ -315,6 +317,10 @@ td, th{
 }
 #filename{
     color: grey;
+}
+.err-msg
+{
+color: #676767;
 }
 
 
