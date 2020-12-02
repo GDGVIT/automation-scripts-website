@@ -292,6 +292,9 @@ td, th{
 }
 
 /*Contribute form*/
+h1{
+    margin-top: 0;
+}
 #contribute-form{
     width: 500px;
     max-width: 100%;

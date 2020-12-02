@@ -205,11 +205,14 @@ $('.nav-link').click(function (e) {
     if (clickedId == 'contribute') {
         $('#grey-btn').attr('href', '#home')
         $('#grey-btn').html('Home')
+        $('#form1').addClass('hide')
     }
     /*If on home change button to contribute*/
     else {
         $('#grey-btn').attr('href', '#contribute')
         $('#grey-btn').html('Add a script')
+        $('#form1').removeClass('hide')
+
     }
 
 
