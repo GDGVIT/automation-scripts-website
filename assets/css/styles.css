@@ -91,9 +91,7 @@ body, button, .search, .form-input{
     padding: 0.5rem 1rem;
 }
 /*Search field*/
-#form2{
-    display: none;
-}
+
 .form-input, .search-form, .upload-file{
     border: 1px solid #676767;
     border-radius: 5px;
@@ -152,7 +150,8 @@ body, button, .search, .form-input{
 }
 
 /*Card container*/
-.add-container, .container{
+
+.add-container, .container, .c{
     padding: 7rem 5vw 5vh 5vw;
     width: 90vw;
     display: flex;
@@ -160,6 +159,7 @@ body, button, .search, .form-input{
     flex-direction: column;
     align-items: center;
 }
+
 .card, .form-input, .upload-file, .modal, .modal-container{
     box-sizing:border-box; 
     -moz-box-sizing:border-box;
@@ -290,6 +290,9 @@ td, th{
 }
 
 /*Contribute form*/
+h1{
+    margin-top: 0;
+}
 #contribute-form{
     width: 500px;
     max-width: 100%;
@@ -316,6 +319,10 @@ td, th{
 #filename{
     color: grey;
 }
+.err-msg
+{
+color: #676767;
+}
 
 
 /*Media queries*/
@@ -339,11 +346,8 @@ td, th{
     }
 }
 @media (max-width: 670px){
-    #form1{
-        display: none;
-    }
+   
     #form2{
-        display: flex;
         margin: 0 5%;
     }
     .search-form{
