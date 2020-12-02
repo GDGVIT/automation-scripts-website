@@ -119,21 +119,16 @@ $('.close').click(function () {
 
 /*Close modal on clicking outside */
 $('.modal').click(function (e) {
-    
-    if($(e.target).hasClass('card-btn')){
-        console.log('clicked the link btns')
-    }
-    else{
+    /*Handle click outside card if not card-btn*/
+    if(!$(e.target).hasClass('card-btn')){
+
         $('#modal').addClass('hide');
     }
 })
 
 $('.modal-container ').click(function (e) {
-    
-    if($(e.target).hasClass('card-btn')){
-        console.log('clicked the link btns')
-    }
-    else{
+    /*Handle click inside card if not card-btn*/
+    if(!$(e.target).hasClass('card-btn')){
         e.preventDefault();
         e.stopPropagation();
         e.stopImmediatePropagation();
